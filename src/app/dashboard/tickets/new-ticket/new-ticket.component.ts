@@ -15,15 +15,16 @@ import { FormsModule } from '@angular/forms';
 export class NewTicketComponent {
 
 @ViewChild('form') form?:ElementRef<HTMLFormElement>
-
+title=''
+request=''
 //private form = viewChild.required<ElementRef<HTMLFormElement>>()
 //@Output() add = new EventEmitter()
 
 add = output<{title:string,request:string}>()
-onSubmit(title:string,request:string) {
+onSubmit() {
 this.add.emit({
-  title:title,
-  request:request
+  title:this.title,
+  request:this.request
 })
 this.form?.nativeElement.reset()
 }

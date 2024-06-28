@@ -12,6 +12,7 @@ import { TicketComponent } from "./ticket/ticket.component";
     
 })
 export class TicketsComponent {
+
     tickets: Ticket[]=[];
 onAdd(ticketData:{title:string,request:string}) {
     const ticket:Ticket={
@@ -22,6 +23,14 @@ onAdd(ticketData:{title:string,request:string}) {
     }
     this.tickets.push(ticket)
 
+}
+onMarkComplete(id:string) {
+this.tickets = this.tickets.map((ticket)=>{
+    if(ticket.id == id){
+        ticket.status = 'close'
+    }
+    return ticket
+})
 }
  
 
